@@ -76,6 +76,18 @@ main section .list .item .car-img img {
     transform: rotate(-30deg);
 }
 
+main section .list .item .car-img::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 250px; /* ou tente 50% */
+    left: 80px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 40%;
+    filter: blur(80px);
+}
+
 main section .list .item .content {
     position: absolute;
     right: 100px;
@@ -248,6 +260,12 @@ section .list .active .content .information {
 }
 
 @media (max-width: 1200px) {
+    main section .list .item .car-img::before {
+        top: 80px; /* ajuste conforme necessário */
+        left: 40px; /* ajuste conforme necessário */
+        filter: blur(40px); /* ajuste conforme necessário */
+    }
+
     header nav ul {
         display: flex;
         flex-direction: column;
