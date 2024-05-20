@@ -1,34 +1,44 @@
-let prevButton = document.getElementById('prev');
-let nextButton = document.getElementById('next');
-let container = document.querySelector('.container');
-let items = container.querySelectorAll('.list .item');
-let indicator = document.querySelector('.indicators');
-let dots = document.querySelectorAll('ul li');
-let list = container.querySelector('.list');
+document.addEventListener('DOMContentLoaded', () => {
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const items = document.querySelectorAll('.list .item');
+    const dots = document.querySelectorAll('.indicators ul li');
+    const numberIndicator = document.querySelector('.indicators .number');
+    let activeIndex = 0;
 
-let active = 0;
+    function updateCarousel() {
+        items.forEach((item, index) => {
+            if (index === activeIndex) {
+                item.classList.add('active');
+                item.style.opacity = 1;
+                item.style.visibility = 'visible';
+            } else {
+                item.classList.remove('active');
+                item.style.opacity = 0;
+                item.style.visibility = 'hidden';
+            }
+        });
 
-function setSlider() {
-    // Remover a classe 'active' de todos os itens e pontos
-    items.forEach(item => item.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
+        dots.forEach((dot, index) => {
+            if (index === activeIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
 
-    // Adicionar a classe 'active' ao item e ponto correspondentes
-    items[active].classList.add('active');
-    dots[active].classList.add('active');
+        numberIndicator.textContent = `0${activeIndex + 1}`;
+    }
 
-    // Atualizar o indicador numérico
-    indicator.querySelector('.number').innerHTML = '0' + (((active + 1) % items.length) || items.length);
-}
+    nextButton.addEventListener('click', () => {
+        activeIndex = (activeIndex + 1) % items.length;
+        updateCarousel();
+    });
 
-nextButton.onclick = () => {
-    list.style.setProperty('--calculation', 1);
-    active = (active + 1) % items.length;
-    setSlider();
-}
+    prevButton.addEventListener('click', () => {
+        activeIndex = (activeIndex - 1 + items.length) % items.length;
+        updateCarousel();
+    });
 
-prevButton.onclick = () => {
-    list.style.setProperty('--calculation', -1);
-    active = (active - 1 + items.length) % items.length;
-    setSlider();
-}
+    updateCarousel();
+});

@@ -56,6 +56,7 @@ main section {
     background-image: radial-gradient(#470964, #6d00d9);
     height: 100vh;
     position: relative;
+    overflow: hidden;
 }
 
 main section .list {
@@ -63,11 +64,22 @@ main section .list {
     height: 100%;
     margin: auto;
     position: relative;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 main section .list .item {
+    min-width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease-in-out;
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+}
+
+main section .list .item:not(.active) {
+    opacity: 0;
+    visibility: hidden;
 }
 
 main section .list .item .car-img {
@@ -213,63 +225,10 @@ main section .indicators ul .active {
     background-color: #fff;
 }
 
-section .list .item {
-    --calculation: 1;
-    transform: translateX(calc(100vw * var(--calculation)));
-    transition: 0.5s;
-}
-
-section .list .item .car-img img {
-    transform: rotate(0);
-    transition: 0.5s;
-    transition-delay: 0.3s;
-}
-
-section .list .item .content .car-information,
-section .list .item .content h2,
-section .list .item .content .description,
-section .list .item .content .information {
-    transform: translateX(calc(200px * var(--calculation)));
-    transition: 0.7s;
-    transition-delay: 0.3s;
-    opacity: 0;
-}
-
-section .list .item .content h2 {
-    transition-delay: 0.5s;
-}
-
-section .list .item .content .description {
-    transition-delay: 0.7s;
-}
-
-section .list .item .content .information {
-    transition-delay: 0.9s;
-}
-
-section .list .active {
-    transform: translateX(0);
-    transition: 0.5s;
-    opacity: 1;
-}
-
-section .list .active .car-img img {
-    transform: rotate(-20deg);
-}
-
-section .list .active .content .car-information,
-section .list .active .content h2,
-section .list .active .content .description,
-section .list .active .content .information {
-    transform: translateX(0);
-    opacity: 1;
-}
-
 @media (max-width: 1200px) {
     header {
         display: flex;
         justify-content: space-between;
-        /* gap: 10px; */
         top: 10px;
     }
 
@@ -297,12 +256,5 @@ section .list .active .content .information {
 
     main section .indicators {
         width: 100vw;
-    }
-
-    section .list .item .content .car-information,
-    section .list .item .content h2,
-    section .list .item .content .description,
-    section .list .item .content .information {
-        transform: translateX(0);
     }
 }
