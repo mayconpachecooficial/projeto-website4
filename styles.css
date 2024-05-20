@@ -260,12 +260,6 @@ section .list .active .content .information {
 }
 
 @media (max-width: 1200px) {
-    main section .list .item .car-img::before {
-        top: 80px; /* ajuste conforme necessário */
-        left: 40px; /* ajuste conforme necessário */
-        filter: blur(40px); /* ajuste conforme necessário */
-    }
-
     header nav ul {
         display: flex;
         flex-direction: column;
@@ -276,7 +270,13 @@ section .list .active .content .information {
         font-size: 15px;
         margin: -10px 0; /* Isso adiciona uma margem superior e inferior */
         padding-top: 25px;
-        padding-right: 350px;
+        
+    }
+
+    main section .list .item .car-img::before {
+        top: 80px; /* ajuste conforme necessário */
+        left: 40px; /* ajuste conforme necessário */
+        filter: blur(40px); /* ajuste conforme necessário */
     }
 
     .list .item {
