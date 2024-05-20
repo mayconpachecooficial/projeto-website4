@@ -240,16 +240,16 @@ main section .indicators ul .active {
     background-color: #fff;
 }
 
+
 @media (max-width: 1200px) {
     header {
         display: flex;
-        justify-content: space-between;
         top: 10px;
     }
 
     header nav ul {
         flex-direction: column;
-        align-items: center;
+        align-items: end;
     }
 
     main section .list {
@@ -257,19 +257,30 @@ main section .indicators ul .active {
     }
 
     main section .list .item .car-img {
-        width: 100%;
+        width: 92%;
     }
 
     main section .list .item .content {
-        right: 50px;
-        width: 100%;
+        right: 20px;
+        width: 50%;
     }
 
+    main section .list .item .content .car-information {
+        padding-right: 200px; 
+    }
+
+    main section .list .item .content .c-car {
+        font-size: 3em;
+        padding-bottom: 150px;
+        padding-right: 200px;
+        white-space: nowrap; /* Adicionado para manter o texto em uma única linha */
+    }
+ 
     main section .arrows {
-        width: 100vw;
+        width: 95vw;
     }
 
     main section .indicators {
-        width: 100vw;
+        width: 90vw;
     }
 }
