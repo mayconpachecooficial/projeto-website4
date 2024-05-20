@@ -29,6 +29,10 @@ header img {
     width: 120px;
 }
 
+header nav {
+    width: 100%; /* Ocupa toda a largura da tela */
+}
+
 header nav ul {
     display: grid;
     grid-template-columns: repeat(3, 200px);
@@ -260,64 +264,42 @@ section .list .active .content .information {
 }
 
 @media (max-width: 1200px) {
+    header {
+        width: 100vw;
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
     header nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
     }
 
-    header nav ul li {
-        font-size: 15px;
-        margin: -10px 0; /* Isso adiciona uma margem superior e inferior */
-        padding-top: 25px;
-        
+    main section .list {
+        width: 100vw;
     }
 
-    main section .list .item .car-img::before {
-        top: 80px; /* ajuste conforme necessário */
-        left: 40px; /* ajuste conforme necessário */
-        filter: blur(40px); /* ajuste conforme necessário */
-    }
-
-    .list .item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .list .item .car-img {
+    main section .list .item .car-img {
         width: 100%;
     }
 
-    .list .item .content {
+    main section .list .item .content {
+        right: 50px;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-size: 8px;
-        margin-top: 260px;
-        margin-bottom: 200px;
     }
 
-    .list .item .content .car-information {
-        margin-right: 120px;
-        padding-top: 50px;
+    main section .arrows {
+        width: 100vw;
     }
 
-    .list .item .content .c-car {
-        padding-bottom: 100px;
-        padding-right: 20px;
+    main section .indicators {
+        width: 100vw;
     }
 
-    .list .item .content .description {
-        padding-left: 100px;
-        padding-right: 80px;
-        margin-right: -220px;
-    }
-
-    .list .item .content .information {
-        margin-right: -140px;
+    section .list .item .content .car-information,
+    section .list .item .content h2,
+    section .list .item .content .description,
+    section .list .item .content .information {
+        transform: translateX(0);
     }
 }
