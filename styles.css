@@ -158,9 +158,14 @@ main section .list .item .content .information {
     border: 2px solid #791fd3;
     background-color: #beff1b;
     color: black;
-    cursor: pointer;
     font-weight: bold;
     font-family: "League Gothic", sans-serif;
+    cursor: pointer;
+}
+
+main section .list .item .content .information:hover {
+    background-color: #791fd3;
+    color: #fff;
 }
 
 main section .list::before {
@@ -273,7 +278,7 @@ main section .indicators ul .active {
         font-size: 3em;
         padding-bottom: 150px;
         padding-right: 200px;
-        white-space: nowrap; /* Adicionado para manter o texto em uma única linha */
+        white-space: nowrap; 
     }
  
     main section .arrows {
