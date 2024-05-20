@@ -8,7 +8,7 @@
 
 body {
     background-color: black;
-    color: #ffff;
+    color: #fff;
     font-size: 16px;
     overflow: hidden;
 }
@@ -32,7 +32,7 @@ header img {
 }
 
 header nav {
-    width: 50%; /* Ocupa toda a largura da tela */
+    width: 50%;
 }
 
 header nav ul {
@@ -75,11 +75,13 @@ main section .list .item {
     position: absolute;
     top: 0;
     left: 0;
-}
-
-main section .list .item:not(.active) {
     opacity: 0;
     visibility: hidden;
+}
+
+main section .list .item.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 main section .list .item .car-img {
@@ -92,6 +94,11 @@ main section .list .item .car-img {
 main section .list .item .car-img img {
     width: 100%;
     transform: rotate(-30deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+main section .list .item.active .car-img img {
+    transform: rotate(-20deg);
 }
 
 main section .list .item .car-img::before {
@@ -99,7 +106,7 @@ main section .list .item .car-img::before {
     position: absolute;
     height: 100%;
     width: 100%;
-    top: 250px; /* ou tente 50% */
+    top: 250px;
     left: 80px;
     background-color: rgb(0, 0, 0);
     border-radius: 40%;
@@ -116,6 +123,14 @@ main section .list .item .content {
     justify-content: center;
     align-items: end;
     gap: 20px;
+    transform: translateX(100px);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+main section .list .item.active .content {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 main section .list .item .content .car-information {
